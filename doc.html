@@ -5,55 +5,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GitHub Page Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-
-        h1, h2, h3 {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f6f9;
             color: #333;
+            line-height: 1.6;
+            padding: 40px;
         }
 
-        .content {
-            background: white;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            margin-top: 30px;
+            color: #34495e;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        ul {
+            margin-left: 20px;
+            list-style-type: disc;
+        }
+
+        .code-block {
+            background-color: #2d2d2d;
+            color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+
+        a:hover {
+            color: #2980b9;
         }
 
         img {
             max-width: 100%;
-            height: auto;
-            border-radius: 5px;
+            border-radius: 8px;
             margin: 20px 0;
-        }
-
-        .code-block {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            margin: 10px 0;
-            font-family: monospace;
-            overflow-x: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .important {
-            color: #d9534f;
+            color: #e74c3c;
             font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #95a5a6;
+        }
+
+        .button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+            text-align: center;
+            display: inline-block;
+            margin: 20px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
         }
     </style>
 </head>
 <body>
 
-    <div class="content">
+    <div class="container">
         <h1>GitHub Page Documentation</h1>
+        
         <h2>Step 1: Initial Setup</h2>
         <p>
-            The first step in creating a GitHub page is setting up your repository. Make sure that your repository is public and named in the format <code>username.github.io</code>. This is crucial as GitHub automatically maps this format to serve the site at <code>https://username.github.io/</code>.
+            The first step in creating a GitHub page is setting up your repository. Ensure that your repository is public and named <code>username.github.io</code>. This format is necessary for GitHub to map your page automatically at <code>https://username.github.io/</code>.
         </p>
         <div class="code-block">
             <pre><code>
@@ -64,21 +128,20 @@
 
         <h2>Step 2: Designing the Webpage</h2>
         <p>
-            My initial struggle was designing a clean, responsive webpage. I had limited knowledge of CSS at the time, but I managed to learn by looking at templates, and using tools like <a href="https://getbootstrap.com/">Bootstrap</a> helped me get a basic layout running quickly.
+            My biggest challenge was designing a clean, responsive webpage. Limited knowledge of CSS made it difficult initially, but I found tools like <a href="https://getbootstrap.com/">Bootstrap</a> incredibly helpful. Below is a wireframe I followed to design the basic layout.
         </p>
-        <img src="https://via.placeholder.com/800x400" alt="Website wireframe">
-        <p>
-            The image above shows the wireframe of the webpage I was aiming to create. The key sections included:
-            <ul>
-                <li>Home</li>
-                <li>Projects</li>
-                <li>Contact</li>
-            </ul>
-        </p>
+        <img src="https://via.placeholder.com/800x400" alt="Wireframe of Website">
+        
+        <p>The key sections of the website include:</p>
+        <ul>
+            <li>Home</li>
+            <li>Projects</li>
+            <li>Contact</li>
+        </ul>
 
         <h2>Step 3: Publishing the Site</h2>
         <p>
-            Publishing the site was straightforward, but I initially faced problems with ensuring the correct branch was set for GitHub Pages. I learned that for project pages, I needed to configure it to use the <code>gh-pages</code> branch:
+            Publishing the site is straightforward, but I initially struggled with branch selection. GitHub Pages requires setting the correct source branch, which in my case was the <code>gh-pages</code> branch:
         </p>
         <div class="code-block">
             <pre><code>
@@ -88,32 +151,35 @@
         </div>
 
         <p>
-            After pushing the branch, I checked the repository settings and ensured the source branch for GitHub Pages was set to <code>gh-pages</code>.
+            I ensured the correct branch was set in the repository’s settings under the GitHub Pages section.
         </p>
 
         <h2>Step 4: Struggles Faced</h2>
         <p>
-            One of the most significant challenges was version control with HTML, CSS, and JavaScript. I initially faced difficulty keeping track of changes across different branches. However, learning more about Git commands like <code>git log</code>, <code>git stash</code>, and <code>git diff</code> helped me a lot.
+            Managing version control for HTML, CSS, and JavaScript was challenging. Git commands like <code>git log</code>, <code>git stash</code>, and <code>git diff</code> helped me overcome issues with keeping track of different versions.
         </p>
-        <img src="https://via.placeholder.com/800x400" alt="Git Workflow Image">
+        <img src="https://via.placeholder.com/800x400" alt="Git workflow overview">
 
         <h2>Step 5: Lessons Learned</h2>
-        <p>
-            Through the process, I learned the importance of:
-            <ul>
-                <li>Responsive web design (making sure your page works well on all devices)</li>
-                <li>Utilizing version control effectively with Git</li>
-                <li>Hosting static sites using GitHub Pages</li>
-                <li>Troubleshooting issues with publishing by checking GitHub Pages’ logs and settings</li>
-            </ul>
-        </p>
+        <p>Here’s what I learned throughout the process:</p>
+        <ul>
+            <li>Effective version control using Git</li>
+            <li>Responsive web design principles</li>
+            <li>Using GitHub Pages to host static websites</li>
+            <li>Troubleshooting deployment issues by checking GitHub Pages settings and logs</li>
+        </ul>
 
         <h2>Conclusion</h2>
         <p>
-            Creating a GitHub page was a rewarding experience. It allowed me to build a personal website while learning key concepts of web design and development. Although I faced many obstacles, each challenge helped me become a better developer.
+            Overall, creating a GitHub page was a rewarding experience that pushed my development skills. I gained confidence in web design, version control, and static website hosting, all of which have been crucial in my development journey.
         </p>
+
+        <a href="https://github.com/username" class="button">View Repository</a>
+
+        <footer>
+            &copy; 2024 GitHub Documentation | Created by [Your Name]
+        </footer>
     </div>
 
 </body>
 </html>
-
